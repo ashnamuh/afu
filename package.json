@@ -6,8 +6,8 @@
   "module": "afu.js",
   "sideEffects": false,
   "scripts": {
-    "test": "ava",
-    "lint": "eslint"
+    "test": "eslint . & ava",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
