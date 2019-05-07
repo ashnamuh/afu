@@ -4,7 +4,7 @@
   "description": "ashnamuh's functional utility",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ashnamuh/afu/issues"
   },
-  "homepage": "https://github.com/ashnamuh/afu#readme"
+  "homepage": "https://github.com/ashnamuh/afu#readme",
+  "devDependencies": {
+    "ava": "^1.4.1"
+  }
 }
