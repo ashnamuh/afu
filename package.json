@@ -1,0 +1,23 @@
+{
+  "name": "afu",
+  "version": "0.0.1",
+  "description": "ashnamuh's functional utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashnamuh/afu.git"
+  },
+  "keywords": [
+    "functional",
+    "utilities"
+  ],
+  "author": "ashnamuh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashnamuh/afu/issues"
+  },
+  "homepage": "https://github.com/ashnamuh/afu#readme"
+}
