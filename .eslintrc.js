@@ -18,6 +18,8 @@ module.exports = {
     'indent': ['error', 2],
     'no-console': (process.env.NODE_ENV === 'production') ? 'error' : 'off',
     'arrow-parens': ['error', 'as-needed'],
-    'no-multiple-empty-lines': ["error", { "max": 1}]
+    'no-multiple-empty-lines': ["error", { "max": 1}],
+    'no-plusplus': 'off',
+    'no-restricted-syntax': 'off'
   },
 };
