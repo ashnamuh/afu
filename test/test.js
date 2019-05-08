@@ -1,6 +1,6 @@
 import test from 'ava'
 import {
-  add, each,
+  add, each, map,
 } from '../index'
 
 test('foo', t => {
@@ -21,4 +21,10 @@ test('each', t => {
     t.true(a === iterable[i])
     i++
   })
+})
+
+test('map', t => {
+  const iterable = [1, 2, 3, 4, 5]
+  const result = map(iterable, a => a * a)
+  t.deepEqual(result, [1, 4, 9, 16, 25])
 })
