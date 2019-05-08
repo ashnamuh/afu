@@ -1,5 +1,7 @@
 import test from 'ava'
-import { add } from '../index'
+import {
+  add, each,
+} from '../index'
 
 test('foo', t => {
   t.pass()
@@ -11,3 +13,12 @@ test('bar', async t => {
 })
 
 test('add', t => t.is(add(4, 5), 9))
+
+test('each', t => {
+  const iterable = ['a', 'b', 'c', 'd', 'e']
+  let i = 0
+  each(iterable, a => {
+    t.true(a === iterable[i])
+    i++
+  })
+})
