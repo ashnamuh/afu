@@ -1,6 +1,6 @@
 import test from 'ava'
 import {
-  add, each, map, filter,
+  add, each, map, filter, reduce,
 } from '../index'
 
 test('foo', t => {
@@ -40,4 +40,13 @@ test('filter', t => {
   const result = filter(iterable, a => a.id > 3)
   t.is(result.length, 2)
   t.deepEqual(result, [{ id: 4 }, { id: 5 }])
+})
+
+test('reduce', t => {
+  const iterable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const resultWithInitValue = reduce(iterable, (acc, current) => acc + current, 10)
+  t.is(resultWithInitValue, 65)
+
+  const result = reduce(iterable, (acc, current) => acc + current)
+  t.is(result, 55)
 })
