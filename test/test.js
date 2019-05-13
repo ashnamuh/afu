@@ -1,6 +1,7 @@
 import test from 'ava'
 import {
   add, each, map, filter, reduce,
+  compose,
 } from '../index'
 
 test('foo', t => {
@@ -49,4 +50,15 @@ test('reduce', t => {
 
   const result = reduce(iterable, (acc, current) => acc + current)
   t.is(result, 55)
+})
+
+test('compose', t => {
+  const iterable = [1, 2, 3, 4, 5]
+  const result = compose(
+    iterable,
+    iter => map(iter, i => i * 2),
+    iter => filter(iter, i => i <= 5),
+  )
+
+  t.deepEqual(result, [2, 4])
 })
