@@ -43,7 +43,7 @@ test('filter', t => {
   t.deepEqual(result, [{ id: 4 }, { id: 5 }])
 })
 
-test.skip('reduce', t => {
+test('reduce', t => {
   const iterable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const resultWithInitValue = reduce((acc, current) => acc + current, 10, iterable)
   t.is(resultWithInitValue, 65)
@@ -74,7 +74,6 @@ test('pipe', t => {
 })
 
 test('curry', t => {
-  // const iterable = [2, 4, 6, 8, 10]
   const curriedAdd = curry(add)
   const add10 = curriedAdd(10)
   const curriedAdd2 = curry((a, b, c, d) => a + b + c + d)
