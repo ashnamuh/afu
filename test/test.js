@@ -13,7 +13,12 @@ test('bar', async t => {
   t.is(await bar, 'bar')
 })
 
-test('add', t => t.is(add(4, 5), 9))
+test('add', t => {
+  t.is(add(4, 5), 9)
+
+  const curriedAdd = add(10)
+  t.is(curriedAdd(33), 43)
+})
 
 test('each', t => {
   const iterable = ['a', 'b', 'c', 'd', 'e']
@@ -22,12 +27,24 @@ test('each', t => {
     t.true(a === iterable[i])
     i++
   }, iterable)
+
+  i = 0
+
+  const curriedEach = each(a => {
+    t.true(a === iterable[i])
+    i++
+  })
+  curriedEach(iterable)
 })
 
 test('map', t => {
   const iterable = [1, 2, 3, 4, 5]
   const result = map(a => a * a, iterable)
   t.deepEqual(result, [1, 4, 9, 16, 25])
+
+  const curriedMap = map(a => a + 1)
+  const curryResult = curriedMap(iterable)
+  t.deepEqual(curryResult, [2, 3, 4, 5, 6])
 })
 
 test('filter', t => {
@@ -41,6 +58,11 @@ test('filter', t => {
   const result = filter(a => a.id > 3, iterable)
   t.is(result.length, 2)
   t.deepEqual(result, [{ id: 4 }, { id: 5 }])
+
+  const curriedFilter = filter(a => a.id < 2)
+  const curryResult = curriedFilter(iterable)
+  t.is(curryResult.length, 1)
+  t.deepEqual(curryResult, [{ id: 1 }])
 })
 
 test('reduce', t => {
@@ -50,6 +72,13 @@ test('reduce', t => {
 
   const result = reduce((acc, current) => acc + current, iterable)
   t.is(result, 55)
+
+  const curriedReduece = reduce((acc, current) => acc + current)
+  const curryResult1 = curriedReduece(iterable)
+
+  const curryResult2 = curriedReduece(10, iterable)
+  t.is(curryResult1, 55)
+  t.is(curryResult2, 65)
 })
 
 test('compose', t => {
