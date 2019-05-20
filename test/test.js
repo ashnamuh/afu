@@ -2,6 +2,7 @@ import test from 'ava'
 import {
   add, each, map, filter, reduce,
   compose, pipe, curry, get,
+  sum,
 } from '../index'
 
 test('foo', t => {
@@ -127,4 +128,11 @@ test('curry', t => {
 test('get', t => {
   const obj = { a: 'vall' }
   t.is(get('a', obj), 'vall')
+})
+
+test('sum', t => {
+  const arr = [1, 2, 3, 4, 5, NaN, null, 'string']
+  t.is(sum(arr), 15)
+
+  t.is(sum(1, 2, 3), 6)
 })
