@@ -1,7 +1,7 @@
 import test from 'ava'
 import {
   add, each, map, filter, reduce,
-  compose, pipe, curry,
+  compose, pipe, curry, get,
 } from '../index'
 
 test('foo', t => {
@@ -122,4 +122,9 @@ test('curry', t => {
     curriedReduce((a, b) => a + b),
   )
   t.is(f([1, 2, 3, 4, 5]), 20)
+})
+
+test('get', t => {
+  const obj = { a: 'vall' }
+  t.is(get('a', obj), 'vall')
 })
