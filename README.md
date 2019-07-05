@@ -3,6 +3,7 @@
 **a**shnamuh's **f**unctional **u**tilities
 
 ## Usage
+It requires Nodejs 10 higher.
 
 Install
 
