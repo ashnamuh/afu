@@ -6,7 +6,7 @@
   "module": "afu.js",
   "sideEffects": false,
   "scripts": {
-    "test": "eslint . & ava",
+    "test": "eslint . & jest",
     "lint": "eslint ."
   },
   "repository": {
@@ -24,10 +24,13 @@
   },
   "homepage": "https://github.com/ashnamuh/afu#readme",
   "devDependencies": {
-    "ava": "^1.4.1",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "babel-jest": "^26.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2"
+    "eslint-plugin-import": "^2.17.2",
+    "jest": "^26.1.0"
   },
   "dependencies": {
     "esm": "^3.2.22"

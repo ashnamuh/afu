@@ -1,18 +1,17 @@
-import test from 'ava'
 import {
   add, map, filter, reduce,
   pipe, curry,
-} from '../index'
+} from '../afu'
 
-test('curry', t => {
+test('curry', () => {
   const curriedAdd = curry(add)
   const add10 = curriedAdd(10)
   const curriedAdd2 = curry((a, b, c, d) => a + b + c + d)
 
-  t.is(add10(5), 15)
-  t.is(curriedAdd(3, 9), 12)
-  t.is(curriedAdd2(1)(2)(3)(4), 10)
-  t.is(curriedAdd2(1, 3, 5, 9), 18)
+  expect(add10(5)).toBe(15)
+  expect(curriedAdd(3, 9)).toBe(12)
+  expect(curriedAdd2(1)(2)(3)(4)).toBe(10)
+  expect(curriedAdd2(1, 3, 5, 9)).toBe(18)
 
   const curriedMap = curry(map)
   const curriedFilter = curry(filter)
@@ -23,5 +22,5 @@ test('curry', t => {
     curriedFilter(i => i < 10),
     curriedReduce((a, b) => a + b),
   )
-  t.is(f([1, 2, 3, 4, 5]), 20)
+  expect(f([1, 2, 3, 4, 5])).toBe(20)
 })

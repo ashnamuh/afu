@@ -1,9 +1,8 @@
-import test from 'ava'
 import {
   find,
-} from '../index'
+} from '../afu'
 
-test('find', t => {
+test('find', () => {
   const iterable = [
     { id: 1, value: 6 },
     { id: 2, value: 11 },
@@ -12,14 +11,14 @@ test('find', t => {
     { id: 5, value: 19 },
   ]
   const result = find(a => a.value > 10, iterable)
-  t.is(result.id, 2)
-  t.deepEqual(result, { id: 2, value: 11 })
+  expect(result.id).toBe(2)
+  expect(result).toEqual({ id: 2, value: 11 })
 
   const noResult = find(a => a.value > 20, iterable)
-  t.is(noResult, undefined)
+  expect(noResult).toBe(undefined)
 
   const curriedFind = find(a => a.value > 10)
   const curryResult = curriedFind(iterable)
-  t.is(curryResult.id, 2)
-  t.deepEqual(curryResult, { id: 2, value: 11 })
+  expect(curryResult.id).toBe(2)
+  expect(curryResult).toEqual({ id: 2, value: 11 })
 })

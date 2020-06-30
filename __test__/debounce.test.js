@@ -1,9 +1,8 @@
-import test from 'ava'
 import {
   debounce,
-} from '../index'
+} from '../afu'
 
-test('debounce', t => {
+test('debounce', () => {
   let callCount = 0
 
   const debounced = debounce(value => {
@@ -12,14 +11,14 @@ test('debounce', t => {
   }, 32)
 
   const result1 = [debounced('a'), debounced('b'), debounced('c')]
-  t.deepEqual(result1, [undefined, undefined, undefined])
-  t.is(callCount, 0)
+  expect(result1).toEqual([undefined, undefined, undefined])
+  expect(callCount).toBe(0)
 
   setTimeout(() => {
-    t.is(callCount, 1)
+    expect(callCount).toBe(1)
 
     const result2 = [debounced('d'), debounced('e'), debounced('f')]
-    t.deepEqual(result2, ['c', 'c', 'c'])
-    t.is(callCount, 1)
+    expect(result2).toEqual(['c', 'c', 'c'])
+    expect(callCount).toBe(1)
   }, 128)
 })

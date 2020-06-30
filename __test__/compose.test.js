@@ -1,9 +1,8 @@
-import test from 'ava'
 import {
   compose, map, filter,
-} from '../index'
+} from '../afu'
 
-test('compose', t => {
+test('compose', () => {
   const iterable = [1, 2, 3, 4, 5]
   const result = compose(
     iterable,
@@ -11,5 +10,5 @@ test('compose', t => {
     iter => filter(i => i <= 5, iter),
   )
 
-  t.deepEqual(result, [2, 4])
+  expect(result).toEqual([2, 4])
 })
