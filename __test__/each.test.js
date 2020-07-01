@@ -3,11 +3,12 @@ import {
 } from '../afu'
 
 describe('each', () => {
-  it('should execute callback function in each item', () => {
+  it('should execute callback function in each item of array', () => {
     const iterable = ['a', 'b', 'c', 'd', 'e']
     let i = 0
-    each(a => {
-      expect(a === iterable[i]).toBe(true)
+    each((a, index) => {
+      expect(a).toBe(iterable[i])
+      expect(index).toBe(i)
       i++
     }, iterable)
 
