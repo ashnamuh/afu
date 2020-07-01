@@ -2,19 +2,15 @@ import {
   each,
 } from '../afu'
 
-test('each', () => {
-  const iterable = ['a', 'b', 'c', 'd', 'e']
-  let i = 0
-  each(a => {
-    expect(a === iterable[i]).toBe(true)
-    i++
-  }, iterable)
+describe('each', () => {
+  it('should execute callback function in each item', () => {
+    const iterable = ['a', 'b', 'c', 'd', 'e']
+    let i = 0
+    each(a => {
+      expect(a === iterable[i]).toBe(true)
+      i++
+    }, iterable)
 
-  i = 0
-
-  const curriedEach = each(a => {
-    expect(a === iterable[i]).toBe(true)
-    i++
+    expect(i).toBe(5)
   })
-  curriedEach(iterable)
 })
