@@ -8,4 +8,9 @@ describe('map', () => {
     const result = map(a => a * a, iterable)
     expect(result).toEqual([1, 4, 9, 16, 25])
   })
+  it('should work with iterable string', () => {
+    const iterable = 'aaa'
+    const result = map((a, index) => a + index, iterable)
+    expect(result).toEqual(['a0', 'a1', 'a2'])
+  })
 })
