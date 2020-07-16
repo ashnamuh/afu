@@ -21,6 +21,7 @@ module.exports = {
     'arrow-parens': ['error', 'as-needed'],
     'no-multiple-empty-lines': ["error", { "max": 1}],
     'no-plusplus': 'off',
-    'no-restricted-syntax': 'off'
+    'no-restricted-syntax': 'off',
+    'import/prefer-default-export': 'off'
   },
 };
